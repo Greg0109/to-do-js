@@ -3,12 +3,12 @@ import './style.css';
 function todolist() {
   const todoarray = [
     {
-      index: 1,
+      index: 0,
       completed: false,
       description: 'Pick up the trash',
     },
     {
-      index: 0,
+      index: 1,
       completed: true,
       description: 'Create To-Do list milestone 1',
     },
@@ -22,24 +22,23 @@ function todolist() {
   const element = document.createElement('div');
   element.classList.add('todolist');
 
-  todoarray.forEach((todoitem, index) => {
+  todoarray.forEach((todoitem) => {
     const item = document.createElement('div');
     item.classList.add('todo-item');
+    const title = document.createElement('p');
+    title.classList.add('todo-title');
+    title.textContent = todoitem.description;
     if (todoitem.completed) {
       const completed = document.createElement('i');
       completed.classList.add('far');
       completed.classList.add('fa-check-square');
-      item.appendChild(completed);
+      title.appendChild(completed);
     } else {
       const completed = document.createElement('i');
       completed.classList.add('far');
       completed.classList.add('fa-square');
-      item.appendChild(completed);
+      title.appendChild(completed);
     }
-    const title = document.createElement('p');
-    title.classList.add('todo-title');
-    title.textContent = todoitem.description;
-    console.log(title);
     item.appendChild(title);
     element.appendChild(item);
   });
