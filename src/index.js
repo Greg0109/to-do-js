@@ -1,20 +1,49 @@
-import _ from 'lodash';
 import './style.css';
-import Icon from './icon.png';
 
-function component() {
+function todolist() {
+  const todoarray = [
+    {
+      index: 0,
+      completed: false,
+      description: 'Pick up the trash',
+    },
+    {
+      index: 1,
+      completed: true,
+      description: 'Create To-Do list milestone 1',
+    },
+    {
+      index: 2,
+      completed: false,
+      description: 'Take the dog for a walk',
+    },
+  ];
+
   const element = document.createElement('div');
+  element.classList.add('todolist');
 
-  // Lodash, currently included via a script, is required for this line to work
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  // Add the image to our existing div
-  const myIcon = new Image();
-  myIcon.src = Icon;
-  element.appendChild(myIcon);
-
+  todoarray.forEach((todoitem) => {
+    const item = document.createElement('div');
+    item.classList.add('todo-item');
+    const title = document.createElement('p');
+    title.classList.add('todo-title');
+    title.textContent = todoitem.description;
+    if (todoitem.completed) {
+      const completed = document.createElement('i');
+      completed.classList.add('far');
+      completed.classList.add('fa-check-square');
+      title.appendChild(completed);
+    } else {
+      const completed = document.createElement('i');
+      completed.classList.add('far');
+      completed.classList.add('fa-square');
+      title.appendChild(completed);
+    }
+    item.appendChild(title);
+    element.appendChild(item);
+  });
   return element;
 }
 
-document.body.appendChild(component());
+const todolistdiv = document.getElementById('todo-list');
+todolistdiv.appendChild(todolist());

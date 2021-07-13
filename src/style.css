@@ -7,11 +7,43 @@
 } */
 body {
   background-color: bisque;
+  justify-content: center;
 }
 
-.hello {
+.title {
   color: red;
-  background: url('./icon.png');
 
   /* font-family: 'MyFont'; */
+  text-align: center;
+  width: 100%;
+}
+
+.mainapp {
+  width: 100%;
+}
+
+#todo-list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  border: 5px;
+  border-color: black;
+  border-radius: 0%;
+  border-style: dashed;
+}
+
+.todo-item {
+  margin-top: 10px;
+  text-align: left;
+  color: black;
+  padding-left: 30px;
+  display: flex;
+}
+
+.todo-title {
+  color: black;
+}
+
+i {
+  padding-left: 30px;
 }
