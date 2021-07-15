@@ -37,6 +37,8 @@ function todolist() {
   element.classList.add('todolist');
 
   todoarray.forEach((todoitem, index) => {
+    todoitem['index'] = index;
+    todoarray[index] = todoitem;
     const item = document.createElement('li');
     item.classList.add('todo-item');
     item.classList.add('dropzone');
@@ -88,6 +90,7 @@ function todolist() {
     item.appendChild(deleteButton);
     element.appendChild(item);
   });
+  localStorageConst.saveList(todoarray, false);
   return element;
 }
 
