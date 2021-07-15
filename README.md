@@ -13,6 +13,8 @@ This is a minimalist to-do list written in Javascript
 ## Installation
 
 Clone the project locally. cd to the project in terminal and run `npm install` and `npm run build` to make sure all dependencies are installed and working
+
+Run `npm start` to start the project
     
 ## 🔗 Author
 
