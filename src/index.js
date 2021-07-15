@@ -13,6 +13,23 @@ function addEventsDragAndDrop(el) {
   el.addEventListener('dragend', dd.dragEnd, false);
 }
 
+function editUI(show, index) {
+  if (show) {
+    const formDiv = document.getElementById('editForm');
+    formDiv.innerHTML = "<form action='' class='form  text-center bg-dark w-100 h-100 m-auto'><br><div class='title-border-top'></div><h2 class='add-book-title'>Add a new book</h2><br><input type='text' name='title' id='title' placeholder='Title'><br><br></form><div class='form-btn'> <button type='submit' class='text-center ' id='add-button'>Add</button></div>";
+
+    const addButton = document.getElementById('add-button');
+    addButton.addEventListener('click', () => {
+      const title = document.getElementById('title').value;
+      addremove.edit(title, index);
+      editUI(false);
+    });
+  } else {
+    const formDiv = document.getElementById('editForm');
+    formDiv.innerHTML = '';
+  }
+}
+
 function todolist() {
   const todoarray = localStorageConst.retrievelist();
 
@@ -53,7 +70,22 @@ function todolist() {
     item.classList.add('draggable');
     item.setAttributeNode(attr);
     addEventsDragAndDrop(item);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+    deleteButton.addEventListener('click', () => {
+      addremove.remove(index);
+    });
+
+    const editButton = document.createElement('button');
+    editButton.innerHTML = '<i class="fas fa-edit"></i>';
+    editButton.addEventListener('click', () => {
+      editUI(true, index);
+    });
+
     item.appendChild(title);
+    item.appendChild(editButton);
+    item.appendChild(deleteButton);
     element.appendChild(item);
   });
   return element;
@@ -67,8 +99,9 @@ newItemButton.addEventListener('click', () => {
 
 const removeCompletedButton = document.getElementById('removeCompletedButton');
 removeCompletedButton.addEventListener('click', () => {
-  addremove.remove();
+  addremove.removeCompleted();
 });
 
 const todolistdiv = document.getElementById('todo-list');
 todolistdiv.appendChild(todolist());
+editUI(false);

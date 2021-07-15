@@ -29,6 +29,10 @@ body {
   border-style: dashed;
 }
 
+#editForm {
+  position: absolute;
+}
+
 #newItemTitle {
   width: 98%;
 }

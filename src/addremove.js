@@ -10,7 +10,22 @@ const addremove = {
     list.push(newItem);
     localStorageConst.saveList(list, true);
   },
-  remove: () => {
+
+  remove: (index) => {
+    const list = localStorageConst.retrievelist();
+    list.splice(index, 1);
+    localStorageConst.saveList(list, true);
+  },
+
+  edit: (title, index) => {
+    const list = localStorageConst.retrievelist();
+    let item = list[index];
+    item.description = title;
+    list[index] = item;
+    localStorageConst.saveList(list, true);
+  },
+
+  removeCompleted: () => {
     const list = localStorageConst.retrievelist();
     for (let i = 0; i < list.length; i += 1) {
       const item = list[i];
