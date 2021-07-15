@@ -1,25 +1,42 @@
-class dragdrop {
-  constructor(index) {
-    this.index = index;
-  }
+let dragSrcEl;
+const DragDrop = {
+  dragStart(e) {
+    this.style.opacity = '0.4';
+    dragSrcEl = this;
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', this.innerHTML);
+  },
 
-  drag(i) {
-    draggedIndex = i;
-  }
+  dragEnter(e) {
+    this.classList.add('over');
+  },
 
-  dragover(element) {
-    element.preventDefault();
-  }
+  dragLeave(e) {
+    e.stopPropagation();
+    this.classList.remove('over');
+  },
 
-  drop(i) {
-    const list = localStorageConst.retrievelist();
-    const tempChange = list[this.draggedIndex];
-    list[this.draggedIndex] = list[i];
-    list[i] = tempChange;
-    localStorageConst.saveList(list);
-  }
+  dragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    return false;
+  },
 
-  dragstart(element) {
+  dragDrop(e) {
+    if (dragSrcEl !== this) {
+      dragSrcEl.innerHTML = this.innerHTML;
+      this.innerHTML = e.dataTransfer.getData('text/html');
+    }
+    return false;
+  },
 
-  }
-}
+  dragEnd(e) {
+    const listItens = document.querySelectorAll('.draggable');
+    [].forEach.call(listItens, (item) => {
+      item.classList.remove('over');
+    });
+    this.style.opacity = '1';
+  },
+};
+
+export default DragDrop;

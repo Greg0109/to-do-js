@@ -26,7 +26,7 @@ const localStorageConst = {
   saveList: (changes, reload) => {
     localStorage.setItem('todolist', JSON.stringify(changes));
     if (reload) {
-        window.location.reload();
+      window.location.reload();
     }
   },
 };
