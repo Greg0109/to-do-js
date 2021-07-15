@@ -19,10 +19,6 @@ body {
 }
 
 .mainapp {
-  width: 100%;
-}
-
-#todo-list {
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -30,6 +26,27 @@ body {
   border-color: black;
   border-radius: 0%;
   border-style: dashed;
+}
+
+.editButtonsDiv {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+#editForm {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.589);
+}
+
+#newItemTitle {
+  width: 98%;
+}
+
+.buttondivs > * {
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .todo-item {
