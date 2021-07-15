@@ -59,11 +59,10 @@ function todolist() {
   return element;
 }
 
-let newItemTitle = document.getElementById('title').value;
+const newItemTitle = document.getElementById('newItemTitle');
 const newItemButton = document.getElementById('newItemButton');
 newItemButton.addEventListener('click', () => {
-  console.log(newItemTitle);
-  // addremove.add(newItemTitle);
+  addremove.add(newItemTitle.value);
 });
 
 const removeCompletedButton = document.getElementById('removeCompletedButton');
