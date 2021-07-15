@@ -20,9 +20,6 @@ body {
 
 .mainapp {
   width: 100%;
-}
-
-#todo-list {
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -30,6 +27,19 @@ body {
   border-color: black;
   border-radius: 0%;
   border-style: dashed;
+}
+
+#title {
+  width: 98%;
+}
+
+.buttondivs > * {
+  width: 100%;
+  align-items: center;
+  padding-left: auto;
+  padding-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .todo-item {

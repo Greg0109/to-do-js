@@ -2,6 +2,7 @@ import './style.css';
 import localStorageConst from './localstorage';
 import dd from './dragdrop';
 import completedChange from './completed';
+import addremove from './addremove';
 
 function addEventsDragAndDrop(el) {
   el.addEventListener('dragstart', dd.dragStart, false);
@@ -57,6 +58,18 @@ function todolist() {
   });
   return element;
 }
+
+let newItemTitle = document.getElementById('title').value;
+const newItemButton = document.getElementById('newItemButton');
+newItemButton.addEventListener('click', () => {
+  console.log(newItemTitle);
+  // addremove.add(newItemTitle);
+});
+
+const removeCompletedButton = document.getElementById('removeCompletedButton');
+removeCompletedButton.addEventListener('click', () => {
+  addremove.remove();
+});
 
 const todolistdiv = document.getElementById('todo-list');
 todolistdiv.appendChild(todolist());

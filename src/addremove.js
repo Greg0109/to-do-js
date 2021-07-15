@@ -8,7 +8,7 @@ const addremove = {
     newItem.completed = false;
     newItem.index = list.length + 2;
     list.push(newItem);
-    localStorageConst.saveList(list);
+    localStorageConst.saveList(list, true);
   },
   remove: () => {
     const list = localStorageConst.retrievelist();
@@ -18,7 +18,7 @@ const addremove = {
         list.splice(i, 1);
       }
     }
-    localStorageConst.saveList(list);
+    localStorageConst.saveList(list, true);
   },
 };
 
