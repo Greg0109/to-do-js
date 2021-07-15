@@ -3,24 +3,22 @@ import localStorageConst from './localstorage';
 let dragSrcEl;
 function createNewList() {
   const newListElements = document.getElementsByTagName('li');
-  console.log(newListElements);
-  let newList = [];
+  const newList = [];
   for (let i = 0; i < newListElements.length; i += 1) {
-    let newItem = {};
+    const newItem = {};
     const title = newListElements[i].textContent;
-    newItem['description'] = title;
+    newItem.description = title;
     const index = newListElements[i].getAttribute('index');
-    newItem['index'] = index;
+    newItem.index = index;
     const completed = newListElements[i].getAttribute('completed');
-    console.log(completed);
-    if (String(completed) === "true") {
-        newItem['completed'] = true;
+    if (String(completed) === 'true') {
+      newItem.completed = true;
     } else {
-        newItem['completed'] = false;
+      newItem.completed = false;
     }
-    newList.push(newItem)
+    newList.push(newItem);
   }
-  localStorageConst.saveList(newList, false);
+  localStorageConst.saveList(newList, true);
 }
 
 const DragDrop = {
@@ -29,6 +27,7 @@ const DragDrop = {
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
+    e.dataTransfer.setData('html', this.outerHTML)
   },
 
   dragEnter() {
@@ -49,7 +48,9 @@ const DragDrop = {
   dragDrop(e) {
     if (dragSrcEl !== this) {
       dragSrcEl.innerHTML = this.innerHTML;
+      dragSrcEl.outerHTML = this.outerHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
+      this.outerHTML = e.dataTransfer.getData('html')
     }
     return false;
   },
