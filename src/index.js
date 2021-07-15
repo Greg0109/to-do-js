@@ -40,7 +40,7 @@ function todolist() {
   element.classList.add('todolist');
 
   todoarray.forEach((todoitem, index) => {
-    todoitem.index = index;
+    todoitem.index = index + 1;
     todoarray[index] = todoitem;
     const item = document.createElement('li');
     item.classList.add('todo-item');

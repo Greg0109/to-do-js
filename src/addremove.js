@@ -6,7 +6,7 @@ const addremove = {
     const newItem = {};
     newItem.description = title;
     newItem.completed = false;
-    newItem.index = list.length + 2;
+    newItem.index = list.length;
     list.push(newItem);
     localStorageConst.saveList(list, true);
   },
