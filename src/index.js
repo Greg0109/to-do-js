@@ -1,6 +1,7 @@
 import './style.css';
 import localStorageConst from './localstorage';
 import dd from './dragdrop';
+import completedChange from './completed';
 
 function addEventsDragAndDrop(el) {
   el.addEventListener('dragstart', dd.dragStart, false);
@@ -17,29 +18,27 @@ function todolist() {
   const element = document.createElement('div');
   element.classList.add('todolist');
 
-  todoarray.forEach((todoitem) => {
+  todoarray.forEach((todoitem, index) => {
     const item = document.createElement('li');
     item.classList.add('todo-item');
     item.classList.add('dropzone');
     const title = document.createElement('p');
     title.classList.add('todo-title');
     title.textContent = todoitem.description;
+
+    const completedCheckBox = document.createElement('input');
+    completedCheckBox.type = 'checkbox';
+    completedCheckBox.name = 'completed';
+    completedCheckBox.value = 'value';
+    completedCheckBox.id = 'id';
     if (todoitem.completed) {
-      const completed = document.createElement('input');
-      completed.type = 'checkbox';
-      completed.name = 'completed';
-      completed.value = 'value';
-      completed.id = 'id';
-      completed.checked = true;
-      title.appendChild(completed);
-    } else {
-      const completed = document.createElement('input');
-      completed.type = 'checkbox';
-      completed.name = 'completed';
-      completed.value = 'value';
-      completed.id = 'id';
-      title.appendChild(completed);
+      completedCheckBox.checked = true;
     }
+    completedCheckBox.addEventListener('change', function() {
+      completedChange.changeStatus(index);
+    })
+    title.appendChild(completedCheckBox);
+
     const indexattr = document.createAttribute('index');
     indexattr.value = todoitem.index;
     item.setAttributeNode(indexattr);
