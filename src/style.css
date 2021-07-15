@@ -19,7 +19,6 @@ body {
 }
 
 .mainapp {
-  width: 100%;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -46,8 +45,6 @@ body {
 .buttondivs > * {
   width: 100%;
   align-items: center;
-  padding-left: auto;
-  padding-right: auto;
   margin-top: 10px;
   margin-bottom: 10px;
 }

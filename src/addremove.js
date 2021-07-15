@@ -19,7 +19,7 @@ const addremove = {
 
   edit: (title, index) => {
     const list = localStorageConst.retrievelist();
-    let item = list[index];
+    const item = list[index];
     item.description = title;
     list[index] = item;
     localStorageConst.saveList(list, true);

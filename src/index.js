@@ -16,9 +16,9 @@ function addEventsDragAndDrop(el) {
 function editUI(show, index) {
   if (show) {
     const formDiv = document.getElementById('editForm');
-    formDiv.classList.add("w-100");
-    formDiv.classList.add("h-100");
-    formDiv.classList.add("text-center");
+    formDiv.classList.add('w-100');
+    formDiv.classList.add('h-100');
+    formDiv.classList.add('text-center');
     formDiv.innerHTML = "<form action='' class='form  text-center w-100 h-100 m-auto'><br><div class='title-border-top'></div><h2 class='add-book-title text-white'>Edit description</h2><br><input type='text' name='title' id='title' placeholder='Title'><br><br><div class='form-btn'> <button type='submit' class='text-center ' id='add-button'>Change</button></div></form>";
 
     const addButton = document.getElementById('add-button');
@@ -40,7 +40,7 @@ function todolist() {
   element.classList.add('todolist');
 
   todoarray.forEach((todoitem, index) => {
-    todoitem['index'] = index;
+    todoitem.index = index;
     todoarray[index] = todoitem;
     const item = document.createElement('li');
     item.classList.add('todo-item');
@@ -76,7 +76,7 @@ function todolist() {
     item.setAttributeNode(attr);
     addEventsDragAndDrop(item);
 
-    const buttonsDiv = document.createElement('div')
+    const buttonsDiv = document.createElement('div');
     buttonsDiv.classList.add('editButtonsDiv');
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('deleteButton');
