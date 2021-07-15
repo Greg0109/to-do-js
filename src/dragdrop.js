@@ -27,7 +27,7 @@ const DragDrop = {
     dragSrcEl = this;
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', this.innerHTML);
-    e.dataTransfer.setData('html', this.outerHTML)
+    e.dataTransfer.setData('html', this.outerHTML);
   },
 
   dragEnter() {
@@ -50,7 +50,7 @@ const DragDrop = {
       dragSrcEl.innerHTML = this.innerHTML;
       dragSrcEl.outerHTML = this.outerHTML;
       this.innerHTML = e.dataTransfer.getData('text/html');
-      this.outerHTML = e.dataTransfer.getData('html')
+      this.outerHTML = e.dataTransfer.getData('html');
     }
     return false;
   },

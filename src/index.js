@@ -34,9 +34,9 @@ function todolist() {
     if (todoitem.completed) {
       completedCheckBox.checked = true;
     }
-    completedCheckBox.addEventListener('change', function() {
+    completedCheckBox.addEventListener('change', () => {
       completedChange.changeStatus(index);
-    })
+    });
     title.appendChild(completedCheckBox);
 
     const indexattr = document.createAttribute('index');
