@@ -40,6 +40,14 @@ function todolist() {
       completed.id = 'id';
       title.appendChild(completed);
     }
+    const indexattr = document.createAttribute('index');
+    indexattr.value = todoitem.index;
+    item.setAttributeNode(indexattr);
+
+    const completedattr = document.createAttribute('completed');
+    completedattr.value = todoitem.completed;
+    item.setAttributeNode(completedattr);
+
     const attr = document.createAttribute('draggable');
     attr.value = 'true';
     item.classList.add('draggable');
