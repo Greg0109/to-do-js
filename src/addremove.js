@@ -31,6 +31,7 @@ const addremove = {
       const item = list[i];
       if (item.completed === true) {
         list.splice(i, 1);
+        i -= 1;
       }
     }
     localStorageConst.saveList(list, true);
