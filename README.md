@@ -2,6 +2,10 @@
 
 This is a minimalist to-do list written in Javascript
 
+## Live version
+
+[Live Version](https://greg0109.github.io/to-do-js/)
+
 ## Features
 
 - Written in Javascript
